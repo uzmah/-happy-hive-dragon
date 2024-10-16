@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DASHBOARD</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <div id="greeting" class="card-header">
+        <h1>DASHBOARD</h1>
+        Welcome back,
+      </div>
+
+      <div class="card-body">
+        <div class="balance-header">
+          ACCOUNT BALANCES
+        </div>
+        <div id="balance"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Fetch data from the backend
+    fetch("/balances")
+      .then(response => response.json())
+      .then(data => {
+        const greeting = document.getElementById("greeting");
+        greeting.innerHTML = greeting.innerHTML + data.user + "!";
+
+        const balances = document.getElementById("balance");
+        balances.innerHTML = ''; // Clear previous content
+
+        // Create a container for the row
+        const rowDiv = document.createElement("div");
+        rowDiv.className = "balances-row"; // Add class for styling
+
+        // Iterate through account data
+        data["accounts"].forEach(account => {
+          // Create a column for each account
+          const colDiv = document.createElement("div");
+          colDiv.className = "account-info"; // Add class for column styling
+
+          // Add account details to the column
+          colDiv.innerHTML = `
+                        <strong>$${account.balance}</strong>
+                        <p>${account.accountName.toUpperCase()}</p>
+                    `;
+
+          // Append the column to the row container
+          rowDiv.appendChild(colDiv);
+        });
+
+        // Append the row container to the balance element
+        balances.appendChild(rowDiv);
+      });
+  </script>
+</body>
+
+</html>

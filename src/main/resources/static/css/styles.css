@@ -1,0 +1,68 @@
+body {
+    background-color: #f4f6f9;
+    font-family: Arial, sans-serif;
+    font-size: 1.0rem;
+}
+
+.container {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Card styling */
+.card {
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.card-header {
+    background-color: #f2f2fc;
+    padding: 1%;
+    padding-left: 3%;
+    font-size: 1.0rem;
+    font-weight: bold;
+}
+
+.card-body {
+    padding-top: 1%;
+    padding-bottom: 20px
+}
+
+.balance-header {
+    padding-left: 3%;
+    padding-bottom: 10px;
+    color: #70a6bf;
+    font-weight: bold;
+}
+
+.balances-row {
+    display: flex;
+    padding-left: 3%;
+    padding-right: 3%;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap
+}
+
+/* Column styling */
+.account-info {
+    background-color: #f2f2f2;
+    padding: 20px 0px 0px 0px;
+    width: 30%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.account-info strong {
+    font-size: 3.0rem;
+    color: rgba(0, 0, 0, 0.8)
+}
+
+.account-info p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.5)
+}
